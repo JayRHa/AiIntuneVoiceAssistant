@@ -61,7 +61,7 @@ def chat_with_open_ai():
                 if text == "Reset.":
                     print("Reset")
                     base_message = [{"role":"system","content":"You are an AI voice assistant that helps to answer questions."}]
-                if "Hey," in text: 
+                if "Hey" in text: 
                     print("Recognized  speech: {}".format(speech_recognition_result.text))
                     ask_openai(speech_recognition_result.text)
             elif speech_recognition_result.reason == speechsdk.ResultReason.NoMatch:
