@@ -19,10 +19,6 @@ deployment_id= "" #"gpt-35-turbo"
 base_message = [{"role":"system","content":"You are an Microsoft Intune senior expert voice assistant who can answer all intune related questions. You are friendly and concise. You only provide factual answers to queries, and do not provide answers that are not related to Microsoft products or intune."}]
 
 
-speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=speech_region)
-audio_output_config = speechsdk.audio.AudioOutputConfig(use_default_speaker=True)
-audio_config = speechsdk.audio.AudioConfig(use_default_microphone=True)
-
 #######################
 ###### Functions ######
 #######################
@@ -82,6 +78,9 @@ def chat_with_open_ai():
 #######################
 ######## Start ########
 #######################
+speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=speech_region)
+audio_output_config = speechsdk.audio.AudioOutputConfig(use_default_speaker=True)
+audio_config = speechsdk.audio.AudioConfig(use_default_microphone=True)
 speech_config.speech_recognition_language=language
 speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_config)
 speech_config.speech_synthesis_voice_name=voice
